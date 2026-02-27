@@ -105,8 +105,8 @@ def month_func():
         print(f"The month is July")
    
         
-#month_func()
-#def month_func():
+month_func()
+#ef month_func():
 
 num1 = 10.030
 num2 = 10.035
