@@ -135,18 +135,28 @@ def print_marriages(marriages_dict, people_dict):
     wife_name = ""
     wife_age = 0
     marriage_year = 0
+    number = 0
     
 
     for i in marriages_dict:
+        number += 1
         
-        marriage_male = i[HUSBAND_KEY_INDEX]
-        print(i)
-        print(marriage_male)
-        #print(marriage_male)
-        #husband_name1 = people_dict[i]
-        #husband_name = husband_name1[NAME_INDEX]
+        curr_marriage = marriages_dict[i]
+        marriage_male = curr_marriage[HUSBAND_KEY_INDEX]
+        marriage_female = curr_marriage[WIFE_KEY_INDEX]
+        marriage_year = curr_marriage[WEDDING_YEAR_INDEX]
+                
+        husband_name1 = people_dict[marriage_male]
+        husband_name = husband_name1[NAME_INDEX]
+        husband_age = marriage_year - husband_name1[BIRTH_YEAR_INDEX]
         
-        #print(f"Marriage #{i} is comprised of {husband_name}, age {husband_age} married at {marriage_year} to {wife_name}, age {wife_age}.")
+        wife_name1 = people_dict[marriage_female]
+        wife_name = wife_name1[NAME_INDEX]
+        wife_age = marriage_year - wife_name1[BIRTH_YEAR_INDEX]
+
+        #print(f"{wife_name}, {wife_age}, {husband_name}, {husband_age}")
+              
+        print(f"Marriage #{number} is comprised of {husband_name}, age {husband_age}, married at {marriage_year}, to {wife_name}, age {wife_age}.")
     
 
 
