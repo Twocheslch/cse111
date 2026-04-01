@@ -21,7 +21,7 @@ def read_compound_list(filename):
     compound_list = []
 
     # Open the CSV file for reading.
-    with open(filename, "rt") as csv_file:
+    with open(filename, "rt", newline="") as csv_file:
 
         # Use the csv module to create a reader
         # object that will read from the opened file.
@@ -31,11 +31,30 @@ def read_compound_list(filename):
         # and not a student's I-Number and name, so this statement
         # skips the first line of the CSV file.
         next(reader)
-
         # Process each row in the CSV file.
         for row in reader:
-
             # Append the current row at the end of the compound list.
             compound_list.append(row)
 
     return compound_list
+
+def print_list(list):
+    for i in list:
+        print(i)
+
+
+def main():
+    list = read_compound_list("week6/pupils.csv")
+    #print_list(list)
+    by_birthdate = sorted(list, key=lambda item: item[2])
+    print("By birthdate:")
+    print_list(by_birthdate)
+    by_name = sorted(list, key=lambda item: item[1])
+    print("By given name:")
+    print_list(by_name)
+    print("by month")
+    by_month = sorted(list, key=lambda item: item[2][5:])
+    print_list(by_month)
+
+if __name__ == "__main__":
+    main()
