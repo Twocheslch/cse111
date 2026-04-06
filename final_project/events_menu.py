@@ -75,7 +75,7 @@ def main():
             ok = events.delete_event(events_list, event_id)
             print("Deleted." if ok else "Not found.")
         elif choice == "7":
-            print("Bye.")
+            print("See ya!")
             break
         else:
             print("Invalid choice.")
